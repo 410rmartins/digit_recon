@@ -1,16 +1,14 @@
-function P2 = am_filter(P1);
-%P1 is the input vector with the dimensions (256,Q)
-%P2 is the output vector with the dimensions (256,Q)
-%Wp is the matrix with the computed weights
-%T is the target (PerfectArial.mat)
+function filtered_matrix = perceptron_filter(P);
 
-%P1 = rand(256,5);% generates matrix 256x10 random in (0 1) testing only
+%P is the input matrix
+%T is the target matrix in this case perfectArial.mat
+%net is the network for the perceptron
+
 T = cell2mat(struct2cell(load('PerfectArial.mat'))); % load perfect arial as matrix
-
 %Resize target matrix
-[~,Q]=size(P1);
+[~,Q]=size(P);
 t_size = 10;
-temp_T = T;
+temp_T = T;temp_T
 
 if t_size > Q
     %make target matrix smaller
@@ -31,7 +29,14 @@ else
 end
 T = temp_T;
 
-Wp = T*pinv(P1);
 
-P2 = Wp * P1;
+net = perceptron;
+net.trainParam.epochs = 2;
+net.trainFcn = 'trainc';
+net.adaptFcn = 'learnp';
+net = train(net,P,T);
+view(net)
+
+save net
+filtered_matrix = net(P);
 return
