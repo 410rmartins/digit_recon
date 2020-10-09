@@ -33,5 +33,7 @@ T = temp_T;
 
 Wp = T*pinv(P1);
 
+save('am_filter','Wp');
+
 P2 = Wp * P1;
 return

@@ -31,12 +31,11 @@ T = temp_T;
 
 
 net = perceptron;
-net.trainParam.epochs = 2;
 net.trainFcn = 'trainc';
 net.adaptFcn = 'learnp';
 net = train(net,P,T);
 view(net)
 
-save net
+save('perceptron_filter.mat','net')
 filtered_matrix = net(P);
 return
