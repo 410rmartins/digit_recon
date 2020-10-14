@@ -33,6 +33,7 @@ T = temp_T;
 net = perceptron;
 net.trainFcn = 'trainc';
 net.adaptFcn = 'learnp';
+net.trainParam.epochs = 300; % maximum epochs
 net = train(net,P,T);
 view(net)
 

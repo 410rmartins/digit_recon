@@ -8,14 +8,14 @@ for i=20:10:Q
     Target = [Target T];
 end
 
-net = patternnet(20);
+net = patternnet(40);
 net = configure(net,P1,Target);
 
 %network functions
-net.layers{1}.transferFcn = 'purelin';
-net.layers{2}.transferFcn = 'purelin';
-net.trainFcn = 'traingd';
-% net.adaptFcn = 'traingd';
+net.layers{1}.transferFcn = 'logsig';
+net.layers{2}.transferFcn = 'logsig';
+net.trainFcn = 'trainc';
+net.adaptFcn = 'learngd';
 
 
 net.divideFcn = 'dividerand';
@@ -24,11 +24,11 @@ net.divideParam.valRatio = 0.15;
 net.divideParam.testRatio = 0;
 
 net.performParam.lr = 0.6; % learning rate
-net.trainParam.epochs = 100; % maximum epochs
-net.trainParam.max_fail = 100; %default is 6
+net.trainParam.epochs = 200; % maximum epochs
+net.trainParam.max_fail = 400; %default is 6
 net.performFcn = 'sse'; % criterion
 net = train(net, P1, Target);
 
-save('layer2_logsig_purelin.mat','net')
+save('layer2_logsig_logsig.mat','net')
 
 end
