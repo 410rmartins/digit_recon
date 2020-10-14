@@ -26,14 +26,6 @@ function ocr_fun(data)
 
 ocr.labels='1234567890';
 
-fig = uifigure;
-
-dd = uidropdown(fig,...
-    'Position',[320 160 100 22],...
-    'Items',{'Filter +classifier', 'One layer Classifier', 'Two layer Classifier'},...
-    'Value','Filter +classifier',...
-    'ValueChangedFcn',@(dd,event) selection(dd));
-
 % Create ValueChangedFcn callback:
 
 %::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
@@ -49,7 +41,7 @@ y = -ones(1,length(data.X)); % non-filled subwindows are labeled by -1
 datainp=data.X;
 save P.dat datainp %/ascii
 save index.dat filled_inx %/ascii
-Y= myclassify(data.X,filled_inx, class_method);
+Y= myclassify(data.X,filled_inx);
 y(filled_inx)=Y;
 %======================================================================== JH
 
