@@ -26,15 +26,8 @@ function ocr_fun(data)
 
 ocr.labels='1234567890';
 
-fig = uifigure;
 
-dd = uidropdown(fig,...
-    'Position',[320 160 100 22],...
-    'Items',{'Filter +classifier', 'One layer Classifier', 'Two layer Classifier'},...
-    'Value','Filter +classifier',...
-    'ValueChangedFcn',@(dd,event) selection(dd));
-
-% Create ValueChangedFcn callback:
+dd = uidropdown(_,'Choose
 
 %::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
 %                     make sure that only the filled subwindows will be classified
@@ -79,5 +72,3 @@ for i=1:5,
     end
 end
 return
-
-
