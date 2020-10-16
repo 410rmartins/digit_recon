@@ -26,6 +26,7 @@ function ocr_fun(data)
 
 ocr.labels='1234567890';
 
+disp('Program execution has resumed');
 % Create ValueChangedFcn callback:
 
 %::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 

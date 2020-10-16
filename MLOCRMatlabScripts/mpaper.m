@@ -177,7 +177,7 @@ function Dn(varargin)
              ind=find( sum(data.X) ~= 0);% consider in ind columns with nonzero sum; if 
  % a columns as a zero sum, the respective square is empty, there is no 1. 
  
- %            save P
+            save('ind_Test.mat','ind')
  
  %Save workspace variables to file. (from help save).
  %save(FILENAME), or save FILENAME,  stores all variables from the current workspace in a
@@ -185,7 +185,7 @@ function Dn(varargin)
  % We want to save only P, and for that we must specify that we only want
  % to save P; for that we must write
  
-%               save P.mat P
+              save P.mat P
            
  % and a mat file called P is created having inside the matrix P.Then we can
  % load P, and rename the matrix P, by clicking on P with the right mouse

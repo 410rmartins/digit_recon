@@ -9,11 +9,11 @@ function out = myclassify(data,filled_inx);
 
 
     %To use associative memory as filter uncomment the following lines
-%     filter = struct2array(load('am_filter.mat'));
-%     Input = filter * Input;
-%     
+    filter = struct2array(load('am_filter.mat'));
+    Input = filter * Input;
+    
  %%choose classifier method
-    load 'layer2_logsig_logsig_800.mat'
+    load layer1_class.mat'
     res = sim(net, Input);
     [~,c] = size(filled_inx);
     out = zeros(size(filled_inx));
