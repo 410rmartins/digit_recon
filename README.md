@@ -8,6 +8,7 @@ When you finish drawing the numbers press the middle button of your mouse or use
 ->One Layer Classifier
 ->Two Layer Classifier
 ->Best
+->Second Best
 
 
-Each option will give you the best classifier for that architecture. Choosing the option "Best" will give you the best two classifiers output, regardless of architecture.s
+Each option will give you the best classifier for that architecture. Choosing the option "Best" or "Second Best" will give you the best or second best classifier output, regardless of architecture. If you want to try other classifiers on the same drawn set just press the button for classify again on mpaper.

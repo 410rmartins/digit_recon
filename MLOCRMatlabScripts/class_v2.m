@@ -21,23 +21,23 @@ net.IW{1,1} = W;
 % net.adaptFcn='learnp';
 net.layers{1}.transferFcn = 'purelin';
 % net.layers{1}.transferFcn = 'logsig';
-net.trainFcn = 'traingd';
-% net.adaptFcn='learngd';
+net.trainFcn = 'trainscg';
+% net.adaptFcn='adaptwb';
 
 net.divideFcn = 'dividerand';
 net.divideParam.trainRatio = 0.85;
 net.divideParam.valRatio = 0.15;
 net.divideParam.testRatio = 0;
 
-net.performParam.lr = 0.4; % learning rate
-net.trainParam.epochs = 2000; % maximum epochs
-net.trainParam.max_fail = 100; %default is 6
-net.performFcn = 'sse'; % criterion
+net.performParam.lr = 0.6; % learning rate
+net.trainParam.epochs = 1000; % maximum epochs
+net.trainParam.max_fail = 10; %default is 6
+net.performFcn = 'mse'; % criterion
 net.trainParam.goal = 1e-6; % goal=objective
 
 net = train(net,P1,Target);
 
 
-save('layer1_class_hardlim_800.mat','net')
+save('layer1_class_purelin_800.mat','net')
 
 end
